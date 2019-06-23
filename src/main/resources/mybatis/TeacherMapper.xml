@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cdu.mapper.TeacherMapper" >
+  <resultMap id="BaseResultMap" type="com.cdu.bean.Teacher" >
+    <constructor >
+      <idArg column="teacher_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="teacher_account" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="teacher_pw" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="teacher_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="teacher_gender" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="teacher_intro" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="teacher_icon" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    teacher_id, teacher_account, teacher_pw, teacher_name, teacher_gender, teacher_intro, 
+    teacher_icon
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cdu.bean.TeacherExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from teacher
+    where teacher_id = #{teacherId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from teacher
+    where teacher_id = #{teacherId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cdu.bean.TeacherExample" >
+    delete from teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cdu.bean.Teacher" >
+    insert into teacher (teacher_id, teacher_account, teacher_pw, 
+      teacher_name, teacher_gender, teacher_intro, 
+      teacher_icon)
+    values (#{teacherId,jdbcType=INTEGER}, #{teacherAccount,jdbcType=VARCHAR}, #{teacherPw,jdbcType=VARCHAR}, 
+      #{teacherName,jdbcType=VARCHAR}, #{teacherGender,jdbcType=VARCHAR}, #{teacherIntro,jdbcType=VARCHAR}, 
+      #{teacherIcon,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cdu.bean.Teacher" >
+    insert into teacher
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+      <if test="teacherAccount != null" >
+        teacher_account,
+      </if>
+      <if test="teacherPw != null" >
+        teacher_pw,
+      </if>
+      <if test="teacherName != null" >
+        teacher_name,
+      </if>
+      <if test="teacherGender != null" >
+        teacher_gender,
+      </if>
+      <if test="teacherIntro != null" >
+        teacher_intro,
+      </if>
+      <if test="teacherIcon != null" >
+        teacher_icon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherAccount != null" >
+        #{teacherAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPw != null" >
+        #{teacherPw,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null" >
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherGender != null" >
+        #{teacherGender,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIntro != null" >
+        #{teacherIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIcon != null" >
+        #{teacherIcon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cdu.bean.TeacherExample" resultType="java.lang.Integer" >
+    select count(*) from teacher
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update teacher
+    <set >
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherAccount != null" >
+        teacher_account = #{record.teacherAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherPw != null" >
+        teacher_pw = #{record.teacherPw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherName != null" >
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherGender != null" >
+        teacher_gender = #{record.teacherGender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherIntro != null" >
+        teacher_intro = #{record.teacherIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherIcon != null" >
+        teacher_icon = #{record.teacherIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update teacher
+    set teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      teacher_account = #{record.teacherAccount,jdbcType=VARCHAR},
+      teacher_pw = #{record.teacherPw,jdbcType=VARCHAR},
+      teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      teacher_gender = #{record.teacherGender,jdbcType=VARCHAR},
+      teacher_intro = #{record.teacherIntro,jdbcType=VARCHAR},
+      teacher_icon = #{record.teacherIcon,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cdu.bean.Teacher" >
+    update teacher
+    <set >
+      <if test="teacherAccount != null" >
+        teacher_account = #{teacherAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherPw != null" >
+        teacher_pw = #{teacherPw,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null" >
+        teacher_name = #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherGender != null" >
+        teacher_gender = #{teacherGender,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIntro != null" >
+        teacher_intro = #{teacherIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherIcon != null" >
+        teacher_icon = #{teacherIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where teacher_id = #{teacherId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cdu.bean.Teacher" >
+    update teacher
+    set teacher_account = #{teacherAccount,jdbcType=VARCHAR},
+      teacher_pw = #{teacherPw,jdbcType=VARCHAR},
+      teacher_name = #{teacherName,jdbcType=VARCHAR},
+      teacher_gender = #{teacherGender,jdbcType=VARCHAR},
+      teacher_intro = #{teacherIntro,jdbcType=VARCHAR},
+      teacher_icon = #{teacherIcon,jdbcType=VARCHAR}
+    where teacher_id = #{teacherId,jdbcType=INTEGER}
+  </update>
+</mapper>

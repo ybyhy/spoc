@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于行为监测的SPOC在线学习平台</title>
+    <link rel="stylesheet" href="../css/study-index.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="header-container">
+            <!-- logo -->
+            <div class="header-container-item1">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <!-- 导航栏 -->
+            <div class="header-container-item2">
+                <ul class="navigation-bar">
+                    <li><a href="../index.html" class="navigation-bar-link">免费课程</a></li>
+                    <li><a href="" class="navigation-bar-link">实战课程</a></li>
+                    <li><a href="" class="navigation-bar-link">微视频</a></li>
+                    <li><a href="./study-club.html" class="navigation-bar-link">俱乐部</a></li>
+                    <li><a href="./study-type.html" class="navigation-bar-link">学习风格</a></li>
+                </ul>
+            </div>
+            <!-- 登录 -->
+            <div class="header-container-item3">
+                <ul class="login-item">
+                    <li class="login-item-li">
+                        <img src="../images/item1.jpg" alt="头像" class="head-portrait">
+                        <!-- 已登陆后显示的框 -->
+                        <div class="login-in">
+                            <div class="login-in-item1">
+                                <!-- 头像 -->
+                                <div class="login-in-item1-img">
+                                    <img src="../images/item1.jpg" alt="" class="login-in-img">
+                                </div>
+                                <!-- 网名 -->
+                                <div class="login-in-item1-info">
+                                    <div class="item1-info-title">
+                                        <label>么么哒爱老婆</label>
+                                    </div>
+                                    <div class="item1-info-experience">
+                                        <span>经验值：3225</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-in-item2">
+                                <ul class="login-in-item2-center">
+                                    <li><a href="./own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                    <li><a href="./own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>订单中心</a></li>
+                                    <li><a href="./own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                    <li><a href="./account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                </ul>
+                            </div>
+                            <!-- 观看历史 -->
+                            <div class="login-in-item3">
+                                <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                <div class="login-in-item3-section">
+                                    <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                    <span class="item3-section-float-right"><a href="">继续</a></span>
+                                </div>
+                            </div>
+                            <div class="login-in-item4">
+                                <a href="">安全退出</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <script>
+                    $(document).ready(function(){
+                        // 鼠标移到头像上显示信息框
+                        $(".login-item-li").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                        $(".login-in").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                    });
+                </script>
+            </div>
+            <!-- 搜索框 -->
+            <div class="header-container-item4">
+                <!-- 搜索标签 -->
+                <div class="search-tags">
+                    <a href="">java入门</a>
+                </div>
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                <!-- 搜索按钮 -->
+                <div class="search-buttn">
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content1 -->
+    <div class="content1">
+        <!-- 用户个人信息区域 -->
+        <div class="userinfo-content">
+            <div class="userinfo-content-left">
+                <div class="userinfo-content-left-img">
+                    <img src="../images/item1.jpg" alt="" width="150px" height="150px">
+                </div>
+                <div class="userinfo-content-left-text">
+                    <h3>qq_Yrainly</h3>
+                    <p><span class="girl">女</span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <span class="caret"></span><a href="javascript:;" id="gender" data-toggle="collapse" data-target="#demo">更多信息</a></p>
+                    <div id="demo" class="collapse in">
+                        <p class="signature">这位同学很懒，木有签名的说~</p>
+                    </div>
+                    <script>
+                        $("#gender").click(function(){
+                            $("#demo").slideToggle("slow");
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="userinfo-content-right">
+                <div class="userinfo-content-right-item1">
+                    <p class="number">
+                        <a href="">102h</a> &nbsp;&nbsp;
+                        <a href="">3685</a> &nbsp;&nbsp;
+                        <a href="">1</a> &nbsp;&nbsp;
+                        <a href="">0</a> &nbsp;&nbsp;
+                        <a href="">0</a> &nbsp;&nbsp;
+                    </p>
+                    <p class="text">
+                        <a href="" title="学习时长102小时43分">学习时长</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="">经验</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="">积分</a> &nbsp;
+                        <a href="">关注</a> &nbsp;
+                        <a href="">粉丝</a> &nbsp;
+                    </p>
+                </div>
+                <div class="userinfo-content-right-item2">
+                    <button class="glyphicon glyphicon-asterisk" style="color:#D3D3D3;"><a href="">个人设置</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 内容区域 -->
+    <div class="content-outside">
+        <div class="content">
+            <div class="content-left">
+                <div class="content-left-item1">
+                    <p>教师信息</p>
+                    <ul>
+                        <li>教师姓名：赵卫东</li>
+                        <li>所属院系：计算机学院</li>
+                        <li>个人简介： 赵卫东，副教授，任现职以来，发表论文十余篇（其中独立或第一作者7篇；核心 6篇；EI收录2篇；主要编著（教材）4部、主要科研项目10项；主要教改项目3项；获计算机软件著作权授权4项</li>
+                    </ul>
+                </div>
+                <div class="content-left-item2">
+                    <p>课程信息</p>
+                    <ul>
+                        <li>课程所属院系：信息科学与工程学院</li>
+                        <li>选课学生数：117</li>
+                        <li>课程访问数：23</li>
+                        <li>访客访问数：3</li>
+                        <li>课程通知数：1</li>
+                        <li>课程资源数：0</li>
+                        <li>课程讨论区主题数：0</li>
+                        <li>课程讨论区发文数：0</li>
+                        <li>常见问题数：0</li>
+                        <li>课程作业数：0</li>
+                        <li>课程问卷数：0</li>
+                        <li>研究型教学：0</li>
+                        <li>课程题库试题：0题</li>
+                        <li>课程卷库试卷：0张</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="content-right-left">
+                    <!-- 导航栏 -->
+                    <div class="show-nav-bar">
+                        <ul>
+                            <li class="current nav-bar-li">课程章节</li>
+                            <li class="nav-bar-li">问答</li>
+                            <li class="nav-bar-li">评论</li>
+                            <li class="nav-bar-li">同学笔记</li>
+                        </ul>
+                    </div>
+                    <!-- 内容展示区 -->
+                    <div class="show-nav-bar-content">
+                        <div style="display:block;" class="show-nav-bar-content-item">
+                            <dl>
+                                <dt><span>第一章</span>分布式之redis环境搭建视频</dt>
+                                <dd><a href="../html/course-index.html">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="../html/course-index.html">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="../html/course-index.html">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                            </dl>
+                            <dl>
+                                <dt><span>第二章</span>我爱你么么哒</dt>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                                <dd><a href="#">1-1 redis介绍<span class="audition">学习</span><span class="time">05:05</span><span class="go">开始学习</span></a></dd>
+                            </dl>
+                        </div>
+                        <div class="show-nav-bar-content-item">
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                            学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                            学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-nav-bar-content-item">
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                            如何使用强大的 SQL 通用表表达式和窗口函数功能。如何使用强大的 SQL 通用表表达式和窗口函数功能。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="show-nav-bar-content-item">
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="questions-and-answers-content-item">
+                                <div class="questions-and-answers-content-item-left">
+                                    <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                                </div>
+                                <div class="questions-and-answers-content-item-right">
+                                    <div class="user-name">
+                                        <a href="#">基于spoc的在线学习平台</a>
+                                    </div>
+                                    <div class="user-scrible">
+                                        <p>
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                            MySQL 8.0 版本新增的三种索引类型。MySQL 8.0 版本新增的三种索引类型。
+                                        </p>
+                                    </div>
+                                    <div class="user-date">
+                                        <span>2019-03-02 15:31:02</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        window.onload = function(){
+                            var oLi = document.getElementsByClassName("nav-bar-li");
+                            var oDiv = document.getElementsByClassName("show-nav-bar-content-item");
+                            for(var i=0;i<oLi.length;i++){
+                                // 为每个按钮添加一个index属性，方便后面选择当前该显示的div
+                                oLi[i].index = i;
+                                oLi[i].onclick = function(){
+                                    // 清除其他button的className以达到背景不变成黄色
+                                    for(var j=0;j<oLi.length;j++){
+                                        oLi[j].className = 'nav-bar-li';
+                                    }
+                                    // 使用this对当前按钮添加className
+                                    this.className = 'current nav-bar-li';
+                
+                                    for(var j=0;j<oDiv.length;j++){
+                                        oDiv[j].style.display = '';
+                                    }
+                                    // 显示当前的div
+                                    oDiv[this.index].style.display = 'block';
+                                };
+                            }
+                        }
+                    </script>
+                </div>
+                <div class="content-right-right">
+                    <div class="content-right-right-container">
+                        <div class="content-right-right-container-btn">
+                            <p>上次学至 1-1 redis介绍</p>
+                            <a href="#">继续学习</a>
+                        </div>
+                        <div class="content-right-right-course-info">
+                            <dl class="first">
+                                <dt>课程须知</dt>
+                                <dd class="autowrap">1、一定的MySQL 基础知识。</dd>
+                                <dd class="autowrap">2、了解基本的数据库操作。</dd>
+                            </dl>
+                            <dl class="first">
+                                <dt>老师告诉你能学到什么？</dt>
+                                <dd class="autowrap">1. MySQL 8.0 版本中更加安全方便的用户管理。</dd>
+                                <dd class="autowrap">2. MySQL 8.0 版本新增的三种索引类型。</dd>
+                                <dd class="autowrap">3. 如何使用强大的 SQL 通用表表达式和窗口函数功能。</dd>
+                                <dd class="autowrap">4. InnoDB 存储引擎相关的增强。</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <!-- 底部第一块内容区 -->
+            <div class="footer-container-item1">
+                <div class="footer-container-item1-link">
+                    <ul class="footer-link-ul">
+                        <li><a href="../index.html">网站首页</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">帮助中心</a></li>
+                        <li><a href="">问题反馈</a></li>
+                        <li><a href="">学习qq群</a></li>
+                    </ul>
+                </div>
+                <div class="footer-container-item1-copyright">
+                    <p>Copyright © 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                </div>
+            </div>
+            <!-- 底部第二块内容区 -->
+            <div class="footer-container-item2">
+                <ul>
+                    <li class="footer-item2-contact-phone">13281289371</li>
+                    <li class="footer-item2-contact-other">免费咨询热线</li>
+                    <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                    <li class="footer-item2-contact-other">官方群：1825956830</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

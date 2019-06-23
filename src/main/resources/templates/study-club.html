@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于行为监测的SPOC在线学习平台</title>
+    <link rel="stylesheet" href="../css/study-club.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../jquery-3.3.1//jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body id="body">
+    <div class="request-code" id="request-code">
+        <div class="request-code-header">
+            <!--  -->
+            <div class="request-code-title">
+                加入俱乐部
+            </div>
+            <!-- 关闭图标 -->
+            <div class="request-code-close">
+                <i class="glyphicon glyphicon-remove" id="close"></i>
+            </div>
+        </div>
+        <div class="request-code-content">
+            <!-- 输入邀请码表单 -->
+            <div class="request-code-content-form">
+                <form action="#">
+                    <div class="form-input">
+                        <label class="form-label">邀请码</label>
+                        <input type="text" class="form-text-input">
+                    </div>
+                    <p class="request-code-error">邀请码无效</p>
+                    <div class="form-button">
+                            <label class="form-label"></label>
+                            <input type="submit" class="form-text-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="isHide">
+        <!-- header -->
+        <div class="header">
+            <div class="header-container">
+                <!-- logo -->
+                <div class="header-container-item1">
+                    <img src="../images/logo.png" alt="">
+                </div>
+                <!-- 导航栏 -->
+                <div class="header-container-item2">
+                    <ul class="navigation-bar">
+                        <li><a href="../index.html" class="navigation-bar-link">免费课程</a></li>
+                        <li><a href="" class="navigation-bar-link">实战课程</a></li>
+                        <li><a href="" class="navigation-bar-link">微视频</a></li>
+                        <li><a href="../html/study-club.html" class="navigation-bar-link">俱乐部</a></li>
+                        <li><a href="../html/study-style.html" class="navigation-bar-link">学习风格</a></li>
+                    </ul>
+                </div>
+                <!-- 登录 -->
+                <div class="header-container-item3">
+                    <ul class="login-item">
+                        <li class="login-item-li">
+                            <img src="../images/item1.jpg" alt="头像" class="head-portrait">
+                            <!-- 已登陆后显示的框 -->
+                            <div class="login-in">
+                                <div class="login-in-item1">
+                                    <!-- 头像 -->
+                                    <div class="login-in-item1-img">
+                                        <img src="../images/item1.jpg" alt="" class="login-in-img">
+                                    </div>
+                                    <!-- 网名 -->
+                                    <div class="login-in-item1-info">
+                                        <div class="item1-info-title">
+                                            <label>么么哒爱老婆</label>
+                                        </div>
+                                        <div class="item1-info-experience">
+                                            <span>经验值：3225</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="login-in-item2">
+                                    <ul class="login-in-item2-center">
+                                        <li><a href="./own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                        <li><a href="./own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>我的笔记</a></li>
+                                        <li><a href="./own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                        <li><a href="./account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                    </ul>
+                                </div>
+                                <!-- 观看历史 -->
+                                <div class="login-in-item3">
+                                    <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                    <div class="login-in-item3-section">
+                                        <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                        <span class="item3-section-float-right"><a href="">继续</a></span>
+                                    </div>
+                                </div>
+                                <div class="login-in-item4">
+                                    <a href="">安全退出</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <script>
+                        $(document).ready(function(){
+                            // 鼠标移到头像上显示信息框
+                            $(".login-item-li").hover(function(){
+                                $(".login-in").css("display","block");
+                                },function(){
+                                    $(".login-in").css("display","none");
+                            });
+                            $(".login-in").hover(function(){
+                                $(".login-in").css("display","block");
+                                },function(){
+                                    $(".login-in").css("display","none");
+                            });
+                        });
+                    </script>
+                </div>
+                <!-- 搜索框 -->
+                <div class="header-container-item4">
+                    <!-- 搜索标签 -->
+                    <div class="search-tags">
+                        <a href="">java入门</a>
+                    </div>
+                    <!-- 搜索框 -->
+                    <div class="search-box">
+                        <input type="text">
+                    </div>
+                    <!-- 搜索按钮 -->
+                    <div class="search-buttn">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="content1">
+            <div class="content1-container">
+                <div class="study-club-item1">
+                    <div class="item1-title"><label>缘起SPOC 为你而来</label></div>
+                    <div class="item1-text-iamge">
+                        <div class="item1-text">
+                            <p class="item1-text-p">“SPOC俱乐部”中国大学校园拓展活动第一站，够个性才有趣，在这里有不仅有IT知识沙龙讲座、更有好玩的户外活动、全国性竞技比、实习实训项目，是协助高校学生社团组织自学成才，支持学生自主学习，结合各地高校IT类教学资源的IT学习类俱乐部。</p>
+                            <p class="item1-text-p">为有致力投身于“互联网+时代”的学子提供优质免费的学习资源，发掘编程人才，激发代码潜能，点燃编程兴趣、传播IT精神，体验企业项目案例，增强企业实践，增强项目开发经验。进而帮助大学生高新就业、成功创业。</p>
+                        </div>
+                        <div class="item1-image">
+                            <img src="../images/study-club.jpg" alt="" class="item1-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="study-club-item2">
+                    <div class="item2-title">
+                        <label class="item2-title-label">SPOC俱乐部，不一样的大学时光</label><br>
+                        <p class="item2-title-p">凡SPOC俱乐部注册的会员，SPOC集团给予全方面的支持，包含不限于以下内容</p>
+                    </div>
+                    <!-- 分隔线 -->
+                    <div class="hr"></div>
+                    <div class="item2-content">
+                        <ul class="item2-content-menu">
+                            <li class="menu activate">社团活动网络宣传支持</li>
+                            <li class="detail" style="display:list-item;">各SPOC俱乐部在SPOC平台官网上均拥有专属展示窗口，可将想要展示的信息等放置其上，对外宣传、分享。SPOC会有专门人员提供技术支持。</li>
+                            <li class="menu">赠送SPOC学习卡</li>
+                            <li class="detail">高端IT课程免费学习：各SPOC俱乐部成员均自动成为SPOC平台在线会员。
+                                    免费学习多门互联网高新技术视频，并有专门老师提供辅导。</li>
+                            <li class="menu">技术讲座</li>
+                            <li class="detail">帮助学生开拓展视野：定期邀请企业家、高级技术工程师、名企高管等开展技术公开课、名企高管对话沙龙、职业规划讲座、创新创业指导、实习就业指导等专项活动。</li>
+                            <li class="menu">技术大赛、创新创业大赛支持</li>
+                            <li class="detail">例如：全国大学创业大赛、ACM大赛、全栈测试大赛。
+                                    SPOC集团提供专家导师予以支持，提供比赛奖励、技术支持。</li>
+                            <li class="menu">社团评选、评优</li>
+                            <li class="detail">例如：全校十佳社团、全校百佳社干评选活动
+                                    SPOC集团提供专家导师予以支持，提供比赛奖励、技术支持。</li>
+                            <li class="menu">创业孵化</li>
+                            <li class="detail">技术支持、团队组建支持、创业孵化、天使投资支持</li>
+                        </ul>
+                        <div class="item2-content-img">
+                            <img src="../images/banner1.jpg" alt="" class="banner">
+                        </div>
+                    </div>
+                    <div class="add-club" id="add-club-button">
+                        <span>寻找有趣的大学时光，加入SPOC俱乐部</span>
+                        <span class="add-now">立即加入&nbsp;&nbsp;>>></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            <div class="footer-container">
+                <!-- 底部第一块内容区 -->
+                <div class="footer-container-item1">
+                    <div class="footer-container-item1-link">
+                        <ul class="footer-link-ul">
+                            <li><a href="../index.html">网站首页</a></li>
+                            <li><a href="">联系我们</a></li>
+                            <li><a href="">帮助中心</a></li>
+                            <li><a href="">问题反馈</a></li>
+                            <li><a href="">学习qq群</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-container-item1-copyright">
+                        <p>Copyright © 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                    </div>
+                </div>
+                <!-- 底部第二块内容区 -->
+                <div class="footer-container-item2">
+                    <ul>
+                        <li class="footer-item2-contact-phone">13281289371</li>
+                        <li class="footer-item2-contact-other">免费咨询热线</li>
+                        <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                        <li class="footer-item2-contact-other">官方群：1825956830</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var count=0;
+            var tLi = document.getElementsByClassName("detail");
+            var oLi = document.getElementsByClassName("menu");
+            var oImg = document.getElementsByClassName("banner")[0];
+            for(var i=0;i<oLi.length;i++){
+                oLi[i].index = i;
+                oLi[i].onclick = function(){
+                    for(var j=0;j<oLi.length;j++){
+                        oLi[j].className = 'menu';
+                        tLi[j].style.display = "none";
+                    }
+                    this.className = "menu activate";
+                    oImg.src = "../images/banner" + (this.index+1) + ".jpg";
+                    tLi[this.index].style.display = "list-item";
+                    count = this.index;
+                }
+            }
+            // 自动播放效果
+            setInterval(function(){
+                // console.log(i%oLi.length);
+                isShow("menu","detail","banner",count);
+                count++;
+            },2000);
+            //判断menu以及对应的detail是否显示
+            function isShow(oClassName,tClassName,imgObeject,targIndex){
+                var oLi = document.getElementsByClassName(oClassName);
+                var tLi = document.getElementsByClassName(tClassName);
+                var img = document.getElementsByClassName(imgObeject)[0];
+                var str = "../images/banner";
+                for(var j=0;j<oLi.length;j++){
+                    oLi[j].index = j;
+                    if(j==targIndex%oLi.length){
+                        oLi[j].className = 'menu activate';
+                        tLi[j].style.display = "list-item";
+                        img.src = str + ((targIndex%oLi.length)+1) + ".jpg";
+                    }else{
+                        oLi[j].className = 'menu';
+                        tLi[j].style.display = "none";
+                    }
+                }
+            }
+            
+            // 显示邀请码弹窗
+            $("#add-club-button").click(function(){
+                show();
+            });
+            // 关闭邀请码弹窗
+            $("#close").click(function(){
+                hide();
+            });
+            function show(){
+                $("#isHide").css({
+                    "backgroundColor":"#ccc",
+                    "opacity":0.7,
+                    "z-index":2
+                });
+                $("#request-code").css({
+                    "display":"block",
+                    "left":($(window).width()-$("#request-code").width())/2 + "px",
+                    "top":($(window).height()-$("#request-code").height())/2 + "px"
+                });
+            }
+            function hide(){ 
+                $("#isHide").css({
+                    "backgroundColor":"#fff",
+                    "opacity":1,
+                    "z-index":2
+                });
+                $("#request-code").css({
+                    "display":"none"
+                });
+            } 
+        };
+    </script>
+</body>
+</html>

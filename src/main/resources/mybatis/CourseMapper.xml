@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cdu.mapper.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.cdu.bean.Course" >
+    <constructor >
+      <idArg column="course_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="course_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_direction" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_level" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_keywords" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_intro" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_icon" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="course_click_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="teacher_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    course_id, course_name, course_direction, course_level, course_keywords, course_intro, 
+    course_icon, course_click_count, teacher_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cdu.bean.CourseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cdu.bean.CourseExample" >
+    delete from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cdu.bean.Course" >
+    insert into course (course_id, course_name, course_direction, 
+      course_level, course_keywords, course_intro, 
+      course_icon, course_click_count, teacher_id
+      )
+    values (#{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseDirection,jdbcType=VARCHAR}, 
+      #{courseLevel,jdbcType=VARCHAR}, #{courseKeywords,jdbcType=VARCHAR}, #{courseIntro,jdbcType=VARCHAR}, 
+      #{courseIcon,jdbcType=VARCHAR}, #{courseClickCount,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cdu.bean.Course" >
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
+        course_id,
+      </if>
+      <if test="courseName != null" >
+        course_name,
+      </if>
+      <if test="courseDirection != null" >
+        course_direction,
+      </if>
+      <if test="courseLevel != null" >
+        course_level,
+      </if>
+      <if test="courseKeywords != null" >
+        course_keywords,
+      </if>
+      <if test="courseIntro != null" >
+        course_intro,
+      </if>
+      <if test="courseIcon != null" >
+        course_icon,
+      </if>
+      <if test="courseClickCount != null" >
+        course_click_count,
+      </if>
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="courseName != null" >
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseDirection != null" >
+        #{courseDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="courseLevel != null" >
+        #{courseLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="courseKeywords != null" >
+        #{courseKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntro != null" >
+        #{courseIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIcon != null" >
+        #{courseIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="courseClickCount != null" >
+        #{courseClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cdu.bean.CourseExample" resultType="java.lang.Integer" >
+    select count(*) from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update course
+    <set >
+      <if test="record.courseId != null" >
+        course_id = #{record.courseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseName != null" >
+        course_name = #{record.courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseDirection != null" >
+        course_direction = #{record.courseDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseLevel != null" >
+        course_level = #{record.courseLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseKeywords != null" >
+        course_keywords = #{record.courseKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseIntro != null" >
+        course_intro = #{record.courseIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseIcon != null" >
+        course_icon = #{record.courseIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseClickCount != null" >
+        course_click_count = #{record.courseClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update course
+    set course_id = #{record.courseId,jdbcType=INTEGER},
+      course_name = #{record.courseName,jdbcType=VARCHAR},
+      course_direction = #{record.courseDirection,jdbcType=VARCHAR},
+      course_level = #{record.courseLevel,jdbcType=VARCHAR},
+      course_keywords = #{record.courseKeywords,jdbcType=VARCHAR},
+      course_intro = #{record.courseIntro,jdbcType=VARCHAR},
+      course_icon = #{record.courseIcon,jdbcType=VARCHAR},
+      course_click_count = #{record.courseClickCount,jdbcType=INTEGER},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cdu.bean.Course" >
+    update course
+    <set >
+      <if test="courseName != null" >
+        course_name = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseDirection != null" >
+        course_direction = #{courseDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="courseLevel != null" >
+        course_level = #{courseLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="courseKeywords != null" >
+        course_keywords = #{courseKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIntro != null" >
+        course_intro = #{courseIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="courseIcon != null" >
+        course_icon = #{courseIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="courseClickCount != null" >
+        course_click_count = #{courseClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cdu.bean.Course" >
+    update course
+    set course_name = #{courseName,jdbcType=VARCHAR},
+      course_direction = #{courseDirection,jdbcType=VARCHAR},
+      course_level = #{courseLevel,jdbcType=VARCHAR},
+      course_keywords = #{courseKeywords,jdbcType=VARCHAR},
+      course_intro = #{courseIntro,jdbcType=VARCHAR},
+      course_icon = #{courseIcon,jdbcType=VARCHAR},
+      course_click_count = #{courseClickCount,jdbcType=INTEGER},
+      teacher_id = #{teacherId,jdbcType=INTEGER}
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </update>
+</mapper>

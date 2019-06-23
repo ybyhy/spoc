@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于行为监测的SPOC在线学习平台</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <script th:src="@{/jquery-3.3.1//jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="header-container">
+            <!-- logo -->
+            <div class="header-container-item1">
+                <img th:src="@{/images/logo.png}" alt="">
+            </div>
+            <!-- 导航栏 -->
+            <div class="header-container-item2">
+                <ul class="navigation-bar">
+                    <li><a href="/index.html" class="navigation-bar-link">免费课程</a></li>
+                    <li><a href="" class="navigation-bar-link">实战课程</a></li>
+                    <li><a href="" class="navigation-bar-link">微视频</a></li>
+                    <li><a href="./html/study-club.html" class="navigation-bar-link">俱乐部</a></li>
+                    <li><a href="./html/study-style.html" class="navigation-bar-link">学习风格</a></li>
+                </ul>
+            </div>
+            <!-- 登录 -->
+            <div class="header-container-item3">
+                <ul class="login-item">
+                    <li class="login-item-li">
+<!--                        <a href="./html/login.html" style="line-height: 50px;">登录</a>-->
+                        <img src="./images/item1.jpg" alt="头像" class="head-portrait">
+                        <!-- 已登陆后显示的框 -->
+                        <div class="login-in">
+                            <div class="login-in-item1">
+                                <!-- 头像 -->
+                                <div class="login-in-item1-img">
+                                    <img src="./images/item1.jpg" alt="" class="login-in-img">
+                                </div>
+                                <!-- 网名 -->
+                                <div class="login-in-item1-info">
+                                    <div class="item1-info-title">
+                                        <label>么么哒爱老婆</label>
+                                    </div>
+                                    <div class="item1-info-experience">
+                                        <span>经验值：3225</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-in-item2">
+                                <ul class="login-in-item2-center">
+                                    <li><a href="./html/own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                    <li><a href="./html/own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>我的笔记</a></li>
+                                    <li><a href="./html/own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                    <li><a href="./html/account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                </ul>
+                            </div>
+                            <!-- 观看历史 -->
+                            <div class="login-in-item3">
+                                <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                <div class="login-in-item3-section">
+                                    <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                    <span class="item3-section-float-right"><a href="">继续</a></span>
+                                </div>
+                            </div>
+                            <div class="login-in-item4">
+                                <a href="">安全退出</a>
+                            </div>
+                        </div>
+                        <script>
+                            //设置登录样式
+                            window.onload = function () {
+
+                            }
+                        </script>
+                    </li>
+                </ul>
+                <script>
+                    $(document).ready(function(){
+                        // 鼠标移到头像上显示信息框
+                        $(".login-item-li").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                        $(".login-in").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                    });
+                </script>
+            </div>
+            <!-- 搜索框 -->
+            <div class="header-container-item4">
+                <!-- 搜索标签 -->
+                <div class="search-tags">
+                    <a href="">java入门</a>
+                </div>
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                <!-- 搜索按钮 -->
+                <div class="search-buttn">
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content -->
+    <div class="content1">
+        <div class="content1-container">
+            <!-- 学科 -->
+            <div class="content1-container-item1">
+                <span class="content1-span"><b>方向：</b></span>
+                <ul class="content1-ul">
+                    <li class="active">后端开发</li>
+                </ul>
+            </div>
+            <!-- 分类 -->
+            <div class="content1-container-item2">
+                <span class="content1-span"><b>分类：</b></span>
+                <ul class="content1-ul">
+                    <li class="active">java</li>
+                </ul>
+            </div>
+            <!-- 难度 -->
+            <div class="content1-container-item3">
+                <span class="content1-span"><b>难度：</b></span>
+                <ul class="content1-ul" id="difficulty">
+                    <li class="active">初级</li>
+                    <li>中级</li>
+                    <li>高级</li>
+                </ul>
+            </div>
+            <!-- 编程类别 -->
+            <div class="content1-container-item4" id="special">
+                <span class="content1-span"><b>标签：</b></span>
+                <ul class="content1-ul special" style="display:block;" id="special1">
+                    <li class="active">Java基础</li>
+                    <li>Javaweb</li>
+                </ul>
+                <ul class="content1-ul special">
+                    <li class="active">maven</li>
+                    <li>Hibernate</li>
+                    <li>Spring</li>
+                    <li>Spring MVC</li>
+                    <li>MyBatis</li>
+                    <li>WebService</li>
+                    <li>SVN</li>
+                    <li>Activiti</li>
+                </ul>
+                <ul class="content1-ul special">
+                    <li class="active">Linux版本</li>
+                    <li>FastDFS</li>
+                    <li>MySQL优化</li>
+                    <li>Nginx反向代理</li>
+                    <li>Quartz作业调度</li>
+                    <li>Redis高性能(Key-Value)数据库</li>
+                </ul>
+            </div>
+            <script>
+                window.onload = function(){
+                    var oDiv = document.getElementById("difficulty");
+                    var oLi = oDiv.getElementsByTagName("li");
+                    var special = document.getElementById("special");
+                    var oUl = special.getElementsByClassName("special");
+                    for(var i=0;i<oLi.length;i++){
+                        oLi[i].index = i;
+                        oLi[i].onclick = function(){
+                            // 清除其他oLi的className以达到背景不变成绿色
+                            for(var j=0;j<oLi.length;j++){
+                                oLi[j].className = '';
+                            }
+                            // 使用this对当前按钮添加className
+                            this.className = 'active';
+
+                            for(var j=0;j<oUl.length;j++){
+                                oUl[j].style.display = '';
+                                oUl[j].removeAttribute("id");
+                            }
+                            // 显示当前的ul
+                            oUl[this.index].style.display = 'block';
+                            oUl[this.index].id = 'special1';
+                        };
+                    }
+                };
+            </script>
+        </div>
+    </div>
+    <div class="content2">
+        <div class="content2-container">
+            <ul class="content2-ul">
+                <li>
+                    <a href="./html/study-index.html" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./html/study-index.html" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./html/authorize.html" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./html/study-index.html" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="content-ul-link">
+                        <!-- 课程图片 -->
+                        <div class="content2-item1-img">
+                            <img src="./images/item.jpg" alt="" class="responsive-img">
+                        </div>
+                        <!-- 课程详细文字介绍 -->
+                        <div class="content2-item1-text">
+                            <!-- 课程标题 -->
+                            <div class="content2-item1-text-item1">
+                                <p>Springboot 微信小程序 – 微信登录功能实战</p>
+                            </div>
+                            <!-- 课程浏览量 -->
+                            <div class="content2-item1-text-item2">
+                                <span class="difficulty">入门</span>
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>1234</span>
+                            </div>
+                            <!-- 课程介绍 -->
+                            <div class="content2-item1-text-item3">
+                                <p>简单实现在小程序中对使用微信登录的方式来登录小程序应用</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <!-- 底部第一块内容区 -->
+            <div class="footer-container-item1">
+                <div class="footer-container-item1-link">
+                    <ul class="footer-link-ul">
+                        <li><a href="../index.html">网站首页</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">帮助中心</a></li>
+                        <li><a href="">问题反馈</a></li>
+                        <li><a href="">学习qq群</a></li>
+                    </ul>
+                </div>
+                <div class="footer-container-item1-copyright">
+                    <p>Copyright © 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                </div>
+            </div>
+            <!-- 底部第二块内容区 -->
+            <div class="footer-container-item2">
+                <ul>
+                    <li class="footer-item2-contact-phone">13281289371</li>
+                    <li class="footer-item2-contact-other">免费咨询热线</li>
+                    <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                    <li class="footer-item2-contact-other">官方群：1825956830</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

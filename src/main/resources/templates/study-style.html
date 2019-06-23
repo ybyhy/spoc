@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于行为监测的SPOC在线学习平台</title>
+    <link rel="stylesheet" href="../css/study-style.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/buttons.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="header-container">
+            <!-- logo -->
+            <div class="header-container-item1">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <!-- 导航栏 -->
+            <div class="header-container-item2">
+                <ul class="navigation-bar">
+                    <li><a href="../index.html" class="navigation-bar-link">免费课程</a></li>
+                    <li><a href="" class="navigation-bar-link">实战课程</a></li>
+                    <li><a href="" class="navigation-bar-link">微视频</a></li>
+                    <li><a href="./study-club.html" class="navigation-bar-link">俱乐部</a></li>
+                    <li><a href="./study-type.html" class="navigation-bar-link">学习风格</a></li>
+                </ul>
+            </div>
+            <!-- 登录 -->
+            <div class="header-container-item3">
+                <ul class="login-item">
+                    <li class="login-item-li">
+                        <img src="../images/item1.jpg" alt="头像" class="head-portrait">
+                        <!-- 已登陆后显示的框 -->
+                        <div class="login-in">
+                            <div class="login-in-item1">
+                                <!-- 头像 -->
+                                <div class="login-in-item1-img">
+                                    <img src="../images/item1.jpg" alt="" class="login-in-img">
+                                </div>
+                                <!-- 网名 -->
+                                <div class="login-in-item1-info">
+                                    <div class="item1-info-title">
+                                        <label>么么哒爱老婆</label>
+                                    </div>
+                                    <div class="item1-info-experience">
+                                        <span>经验值：3225</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-in-item2">
+                                <ul class="login-in-item2-center">
+                                    <li><a href="./own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                    <li><a href="./own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>我的笔记</a></li>
+                                    <li><a href="./own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                    <li><a href="./account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                </ul>
+                            </div>
+                            <!-- 观看历史 -->
+                            <div class="login-in-item3">
+                                <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                <div class="login-in-item3-section">
+                                    <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                    <span class="item3-section-float-right"><a href="">继续</a></span>
+                                </div>
+                            </div>
+                            <div class="login-in-item4">
+                                <a href="">安全退出</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <script>
+                    $(document).ready(function(){
+                        // 鼠标移到头像上显示信息框
+                        $(".login-item-li").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                        $(".login-in").hover(function(){
+                            $(".login-in").css("display","block");
+                            },function(){
+                                $(".login-in").css("display","none");
+                        });
+                    });
+                </script>
+            </div>
+            <!-- 搜索框 -->
+            <div class="header-container-item4">
+                <!-- 搜索标签 -->
+                <div class="search-tags">
+                    <a href="">java入门</a>
+                </div>
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                <!-- 搜索按钮 -->
+                <div class="search-buttn">
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content1 -->
+    <div class="content1">
+        <!-- 用户个人信息区域 -->
+        <div class="userinfo-content">
+            <div class="userinfo-content-left">
+                <div class="userinfo-content-left-img">
+                    <img src="../images/item1.jpg" alt="" width="150px" height="150px">
+                </div>
+                <div class="userinfo-content-left-text">
+                    <h3>qq_Yrainly</h3>
+                    <p><span class="girl">女</span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <span class="caret"></span><a href="javascript:;" id="gender" data-toggle="collapse" data-target="#demo">更多信息</a></p>
+                    <div id="demo" class="collapse in">
+                        <p class="signature">这位同学很懒，木有签名的说~</p>
+                    </div>
+                    <script>
+                        $("#gender").click(function(){
+                            $("#demo").slideToggle("slow");
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="userinfo-content-right">
+                <div class="userinfo-content-right-item1">
+                    <p class="number">
+                        <a href="">102h</a> &nbsp;&nbsp;
+                        <a href="">3685</a> &nbsp;&nbsp;
+                        <a href="">1</a> &nbsp;&nbsp;
+                        <a href="">0</a> &nbsp;&nbsp;
+                        <a href="">0</a> &nbsp;&nbsp;
+                    </p>
+                    <p class="text">
+                        <a href="" title="学习时长102小时43分">学习时长</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="">经验</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="">积分</a> &nbsp;
+                        <a href="">关注</a> &nbsp;
+                        <a href="">粉丝</a> &nbsp;
+                    </p>
+                </div>
+                <div class="userinfo-content-right-item2">
+                    <button class="glyphicon glyphicon-asterisk" style="color:#D3D3D3;"><a href="./account-management.html">个人设置</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 内容区域 -->
+    <div class="content-outside">
+        <div class="content">
+            <!-- 学习风格 -->
+            <div class="study-style-title">
+                <label class="label-title">学习风格问卷</label>
+            </div>
+            <div class="study-style-content" id="study-style-content">
+                <!-- 题号 -->
+                <div class="study-style-content-number">
+                    <div class="content-number-container">
+                        <div class="count-down">剩余时间：<span id="timer">20:00</span></div>
+                        <!-- 设置倒计时 -->
+                        <script type="text/javascript">
+                            var orign_time = Date.parse(new Date())/1000 + 1200;
+                            //var orign_time = Date.parse(new Date())/1000 + 1200;当前时间的后20十分钟的秒数
+                            var leftTime = Date.parse(new Date())/1000;//转化成秒
+                            // alert(orign_time);
+                            var maxTime = orign_time-leftTime;
+                            function CountDownTime() {
+                                if (maxTime >=0) {
+                                    // var hours = parseInt(maxTime/60/60%24, 10); //计算剩余的小时
+                                    var minutes = parseInt(maxTime/60%60, 10); //计算剩余的分钟
+                                    var seconds = parseInt(maxTime%60, 10); //计算剩余的秒数
+                                    if(seconds<10){
+                                        seconds = "0" + seconds;
+                                    }
+                                    msg = minutes+":"+seconds;
+                                    document.getElementById("timer").innerHTML = msg;
+                                    --maxTime
+                                } else {
+                                    clearInterval(timer);
+                                    document.getElementById("timer").innerHTML = "时间到";
+                                }
+                            }
+                            timer = setInterval("CountDownTime()",1000);
+                        </script> 
+                        <div class="content-pages">
+                            <ul>
+                                <li class="pages-button activate">第一页</li>
+                                <li class="pages-button">第二页</li>
+                                <li class="pages-button">第三页</li>
+                                <li class="pages-button">第四页</li>
+                                <li class="pages-button">第五页</li>
+                                <li class="pages-button">第六页</li>
+                                <li class="pages-button">第七页</li>
+                                <li class="pages-button">第八页</li>
+                            </ul>
+                        </div>
+                        <article class="explain">
+                            <h1 class="explain">说明</h1>
+                            <p>
+                                所谓学习风格，是指学习者持续一贯的带有个性特征的学习方式，是学习方法和学习者的学习情绪、态度、动机、坚持性以及对学习环境、学习内容等方面的偏;爱的总和,即那些持续稳定地表现出来的学习策略和学习倾向就构成了学习者所具有的学习风格。
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                <!-- 问题 -->
+                <div class="study-style-content-question">
+                    <form action="#" id="form" method="POST">
+                        <div class="qestion-container">
+                            <!-- 第一页 -->
+                            <div class="pages" style="display:block;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>1.我之后了解更好的事情？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="1"><label class="label-option">A.试试看</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="1"><label class="label-option">B.想一想</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>2.我办事喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="2"><label class="label-option">A.讲究实际</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="2"><label class="label-option">B.标新立异</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>3.当我回想以前做过的事，我的脑海中大多会出现？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="3"><label class="label-option">A.一幅画面</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="3"><label class="label-option">B.一些话语</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>4.我往往会？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="4"><label class="label-option">A.明了事物的细节但不明其总体结构.</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="4"><label class="label-option">B.明了事物的总体结构但不明其细节</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>5.在学习某些东西时,我不禁会？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="5"><label class="label-option">A.谈论它</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="5"><label class="label-option">B. 思考它</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>6.如果我是一名教师，我比较喜欢教？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="6"><label class="label-option">A.关于事实和实际情况的课程</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="6"><label class="label-option">B.关于思想和理论方面的课程</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第二页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>7.我比较偏爱的获取新信息的媒体是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="7"><label class="label-option">A.图画、图解、图形及图象</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="7"><label class="label-option">B.书面指导和言语信息</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>8.一旦我了解了？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="8"><label class="label-option">A.事物的所有部分, 我就能把握其整体</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="8"><label class="label-option">B.事物的整体，我就知道其构成部分</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>9.在学习小组中遇到难题时，我通常会？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="9"><label class="label-option">A.挺身而出，畅所欲言</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="9"><label class="label-option">B.往后退让，倾听意见</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>10.我发现比较容易学习的是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="10"><label class="label-option">A.事实性内容</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="10"><label class="label-option">B.概念性内容</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>11.在阅读一本带有许多插图的书时，我一般会？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="11"><label class="label-option">A.仔细观察插图</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="11"><label class="label-option">B. 集中注意文字</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>12.当我解决数学题时，我常常？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="12"><label class="label-option">A.思考如何一步一步求解</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="12"><label class="label-option">B. 先看解答，然后设法得出解题步骤</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第三页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>13.在我修课的班级中，？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="13"><label class="label-option">A.我通常结识许多同学</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="13"><label class="label-option">B.我认识的同学寥寥无几</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>14.在阅读非小说类作品时，我偏爱？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="14"><label class="label-option">A.那些能告诉我新事实和教我怎么做的东西</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="14"><label class="label-option">B.那些能启发我思考的东西</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>15.我喜欢的教师是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="15"><label class="label-option">A.在黑板上画许多图解的人</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="15"><label class="label-option">B.花许多时间讲解的人</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>16.当我在分析故事或小说时，？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="16"><label class="label-option">A.我想到各种情节并试图把他们结合起来去构想主题</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="16"><label class="label-option">B.当我读完时只知道主题是什么，然后我得回头去寻找有关情节</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>17.当我做家庭作业时，我比较喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="17"><label class="label-option">A.一开始就立即做解答</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="17"><label class="label-option">B. 首先设法理解题意</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>18.我比较喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="18"><label class="label-option">A.确定性的想法</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="18"><label class="label-option">B.推论性的想法</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第四页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>19.我记得最牢是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="19"><label class="label-option">A.看到的东西</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="19"><label class="label-option">B.听到的东西</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>20.我特别喜欢教师？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="20"><label class="label-option">A.向我条理分明地呈示材料</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="20"><label class="label-option">B.先给我一个概貌，再将材料与其他论题相联系</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>21.我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="21"><label class="label-option">A.在小组中学习</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="21"><label class="label-option">B.独自学习</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>22.我更喜欢被认为是：？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="22"><label class="label-option">A.对工作细节很仔细</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="22"><label class="label-option">B.对工作很有创造力</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>23.当要我到一个新的地方去时，我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="23"><label class="label-option">A.要一幅地图</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="23"><label class="label-option">B.要书面指南</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>24.我学习时？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="24"><label class="label-option">A.总是按部就班，我相信只要努力，终有所得</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="24"><label class="label-option">B.我有时完全糊涂，然后恍然大悟</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第五页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>25.我办事时喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="25"><label class="label-option">A.试试看</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="25"><label class="label-option">B.想好再做</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>26.当我阅读趣闻时,我喜欢作者？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="26"><label class="label-option">A.以开门见山的方式叙述</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="26"><label class="label-option">B.以新颖有趣的方式叙述</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>27.当我在上课时看到一幅图,我通常会清晰地记着？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="27"><label class="label-option">A.那幅图</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="27"><label class="label-option">B.教师对那幅图的解说</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>28.当我思考一大段信息资料时，我通常：？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="28"><label class="label-option">A.注意细节而忽视概貌</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="28"><label class="label-option">B.先了解概貌而后深入细节</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>29.我最容易记住？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="29"><label class="label-option">A.我做过的事</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="29"><label class="label-option">B.我想过的许多事</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>30.当我执行一项任务是，我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="30"><label class="label-option">A.掌握一种方法</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="30"><label class="label-option">B.想出多种方法</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第六页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>31.当有人向我展示资料时，我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="31"><label class="label-option">A.图表</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="31"><label class="label-option">B.概括其结果的文字</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>32.当我写文章时，我通常？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="32"><label class="label-option">A.先思考和着手写文章的开头，然后循序渐进</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="32"><label class="label-option">B.先思考和写作文章的不同部分，然后加以整理</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>33.当我必须参加小组合作课题时，我要？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="33"><label class="label-option">A.大家首先“集思广益”，人人贡献主意</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="33"><label class="label-option">B.各人分头思考，然后集中起来比较各种想法</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>34.当我要赞扬他人时，我说他是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="34"><label class="label-option">A.很敏感的</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="34"><label class="label-option">B.想象力丰富的</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>35.当我在聚会时与人见过面，我通常会记得？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="35"><label class="label-option">A.他们的模样</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="35"><label class="label-option">B.他们的自我介绍</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>36.当我学习新的科目时,我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="36"><label class="label-option">A.全力以赴，尽量学得多学得好</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="36"><label class="label-option">B.试图建立该科目与其他有关科目的联系</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第七页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>37.我通常被他人认为是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="37"><label class="label-option">A.外向的</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="37"><label class="label-option">B.保守的</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>38.我喜欢的课程内容主要是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="38"><label class="label-option">A.具体材料（事实、数据）</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="38"><label class="label-option">B.抽象材料 (概念、理论)</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>39.在娱乐方面，我喜欢？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="39"><label class="label-option">A.看电视</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="39"><label class="label-option">B.看书</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>40.有些教师讲课时先给出一个提纲，这种提纲对我？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="40"><label class="label-option">A.有所帮助</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="40"><label class="label-option">B.很有帮助</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>41.我认为只给合作的群体打一个分数的想法？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="41"><label class="label-option">A.吸引我</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="41"><label class="label-option">B.不吸引</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>42.当我长时间地从事计算工作时？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="42"><label class="label-option">A.我喜欢重复我的步骤并仔细地检查我的工作</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="42"><label class="label-option">B.我认为检查工作非常无聊，我是在逼迫自己这么干</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 第八页 -->
+                            <div class="pages" style="display:none;">
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>43.我能画下我去过的地方？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="43"><label class="label-option">A.很容易且相当精确</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="43"><label class="label-option">B.很困难且没有许多细节</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div class="question-item-title">
+                                        <label>44.当在小组中解决问题时，我更可能是？</label>
+                                    </div>
+                                    <div class="question-item-options">
+                                        <ul>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="A" name="44"><label class="label-option">A.思考解决问题的步骤</label>
+                                            </li>
+                                            <li class="option">
+                                                <input class="radio_type" type="radio" value="B" name="44"><label class="label-option">B.思考可能的结果及其在更广泛的领域内的应用</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 错误信息提示 -->
+                                <div class="qestion-item">
+                                    <div class="residual-prompt">
+                                        <span>***</span><br/>
+                                        <span id="msg">每个题都必须做</span>
+                                    </div>
+                                </div>
+                                <div class="qestion-item">
+                                    <div>
+                                        <input type="submit" value="提交" class="button button-pill button-primary"  id="btnSubmit" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                window.onload = function(){
+                    var oDiv = document.getElementsByClassName("pages");
+                    var oButton = document.getElementsByClassName("pages-button");
+                    for(var i=0;i<oButton.length;i++){
+                        oButton[i].index = i;
+                        oButton[i].onclick = function(){
+                            for(var j=0;j<oButton.length;j++){
+                                oButton[j].className = 'pages-button';
+                            }
+                            this.className = "pages-button activate";
+                            
+                            for(var j=0;j<oDiv.length;j++){
+                                oDiv[j].style.display = "none";
+                            }
+                            oDiv[this.index].style.display = "block";
+                        }
+                    }
+                    // 判断单选框选择状况
+                    $("#btnSubmit").click(function(){
+                        //存放没有选择的
+                        var str = [];
+                        var msg = "";
+                        for(var i=1;i<=6;i++){
+                            var val=$('input:radio[name="'+i+'"]:checked').val();
+                            if(val == null){
+                                console.log("第" + i + "个单选框没选中");
+                                str.push(i);
+                                continue;
+                            }else{
+                                console.log(val);
+                            }
+                        }
+                        // 判断是否已经做完
+                        if(str.length==0){
+                            // alert("已做完");
+                            $("#form").submit();
+                        }else{
+                            for(var i=0;i<str.length;i++){
+                                console.log(str[i]);
+                                if(i==(str.length-1)){
+                                    msg += (i+1);
+                                }else{
+                                    msg += (i+1) + ",";
+                                }
+                            }
+                            document.getElementById("msg").innerHTML="您还有"+msg+"题没做，请做完后再提交";  
+                        }   
+                    });
+                };
+            </script>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <!-- 底部第一块内容区 -->
+            <div class="footer-container-item1">
+                <div class="footer-container-item1-link">
+                    <ul class="footer-link-ul">
+                        <li><a href="../index.html">网站首页</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">帮助中心</a></li>
+                        <li><a href="">问题反馈</a></li>
+                        <li><a href="">学习qq群</a></li>
+                    </ul>
+                </div>
+                <div class="footer-container-item1-copyright">
+                    <p>Copyright © 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                </div>
+            </div>
+            <!-- 底部第二块内容区 -->
+            <div class="footer-container-item2">
+                <ul>
+                    <li class="footer-item2-contact-phone">13281289371</li>
+                    <li class="footer-item2-contact-other">免费咨询热线</li>
+                    <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                    <li class="footer-item2-contact-other">官方群：1825956830</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

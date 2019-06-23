@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于行为监测的SPOC在线学习平台</title>
+    <link rel="stylesheet" href="../css/study-vedio.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../jquery-3.3.1//jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- Ueditor文件 -->
+    <script type="text/javascript" charset="utf-8" src="../ueditor1_4_3_3-utf8-jsp/utf8-jsp/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor1_4_3_3-utf8-jsp/utf8-jsp/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="../ueditor1_4_3_3-utf8-jsp/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="header-container">
+            <div class="header-container-item1">
+                <ul class="header-left">
+                    <!-- 返回上一级按钮 -->
+                    <li>
+                        <a href="javascript:;"><span class="glyphicon glyphicon-arrow-left"></span></a>
+                    </li>
+                    <!-- 章节显示 -->
+                    <li>
+                        <a href="javascript:;"><b>1-1 什么是类和对象</b></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-container-item2">
+                <ul class="header-right">
+                    <!-- 头像 -->
+                    <li class="header-right-li">
+                        <img src="../images/item1.jpg" alt="头像" class="head-portrait">
+                        <!-- 已登陆后显示的框 -->
+                        <div class="login-in">
+                            <div class="login-in-item1">
+                                <!-- 头像 -->
+                                <div class="login-in-item1-img">
+                                    <img src="../images/item1.jpg" alt="" class="login-in-img">
+                                </div>
+                                <!-- 网名 -->
+                                <div class="login-in-item1-info">
+                                    <div class="item1-info-title">
+                                        <label>么么哒爱老婆</label>
+                                    </div>
+                                    <div class="item1-info-experience">
+                                        <span>经验值：3225</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-in-item2">
+                                <ul class="login-in-item2-center">
+                                    <li><a href="./own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                    <li><a href="./own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>订单中心</a></li>
+                                    <li><a href="./own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                    <li><a href="./account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                </ul>
+                            </div>
+                            <!-- 观看历史 -->
+                            <div class="login-in-item3">
+                                <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                <div class="login-in-item3-section">
+                                    <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                    <span class="item3-section-float-right"><a href="">继续</a></span>
+                                </div>
+                            </div>
+                            <div class="login-in-item4">
+                                <a href="">安全退出</a>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                // 鼠标移到头像上显示信息框
+                                $(".header-right-li").hover(function(){
+                                    $(".login-in").css("display","block");
+                                    },function(){
+                                        $(".login-in").css("display","none");
+                                });
+                                $(".login-in").hover(function(){
+                                    $(".login-in").css("display","block");
+                                    },function(){
+                                        $(".login-in").css("display","none");
+                                });
+                            });
+                        </script>
+                    </li>
+                    <!-- 输入框 -->
+                    <li>
+                        <input type="text" class="form-control" id="name" placeholder="搜索感兴趣的内容">
+                        <div class="search-button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- content -->
+    <div class="content">
+        <div class="content-container">
+            <!-- 导航栏 -->
+            <div class="content-left">
+                <ul class="nav-bar">
+                    <li id="nav-bar-li">
+                        <i class="fa fa-bars fa-icon" aria-hidden="true"></i>
+                        <span class="nav-bar-li-text">章节</span>
+                    </li>
+                    <li id="requestion">
+                        <i class="fa fa-bookmark fa-icon" aria-hidden="true"></i>
+                        <span class="nav-bar-li-text">问答</span>
+                    </li>
+                    <li id="note">
+                        <i class="fa fa-pencil-square-o fa-icon" aria-hidden="true"></i>
+                        <span class="nav-bar-li-text">笔记</span>
+                    </li>
+                    <li id="comment">
+                        <i class="fa fa-commenting-o fa-icon" aria-hidden="true"></i>
+                        <span class="nav-bar-li-text">评论</span>
+                    </li>
+                </ul>
+                <!-- 章节栏显示 -->
+                <div class="chapter-menu" id="chapter-menu">
+                    <dl>
+                        <dt>第一章</dt>
+                        <dd class="study-chapter-link study-chapter-active"><a href="#">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">1-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                    </dl>
+                    <dl>
+                        <dt>第二章</dt>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                        <dd class="study-chapter-link"><a href="javascript:;">2-1 什么是类和对象<i class="fa fa-circle-o" aria-hidden="true"></i></a></dd>
+                    </dl>
+                </div>
+            </div>
+            <script>
+                $("#nav-bar-li").hover(function(){
+                    $("#chapter-menu").css("display","block");
+                    $("#nav-bar-li").css("backgroundColor","#26292C");
+                },function(){
+                    $("#chapter-menu").css("display","none");
+                    $("#nav-bar-li").css("backgroundColor","#1c1f21");
+                });
+                $("#chapter-menu").hover(function(){
+                    $("#chapter-menu").css("display","block");
+                    $("#nav-bar-li").css("backgroundColor","#26292C");
+                },function(){
+                    $("#chapter-menu").css("display","none");
+                    $("#nav-bar-li").css("backgroundColor","#1c1f21");
+                });
+            </script>
+            <!-- 视频播放区 -->
+            <div class="content-center">
+                <video autoplay="autoplay" controls="controls" preload="auto" class="vedio-play-section"  width="800" height="488">
+                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- 课程简介 -->
+            <div class="content-right"  style="display:block;" id="introduction-div">
+                <div class="content-right-container">
+                    <div class="content-right-container-item1">
+                        <!-- 讲师头像 -->
+                        <div class="teacher-header-potrait">
+                            <a href="javascript:;"><img src="../images/item1.jpg" alt="讲师头像" class="teacher-img"></a>
+                        </div>
+                        <!-- 讲师网名 -->
+                        <div class="teacher-header-introduction">
+                            <ul>
+                                <li class="introduction-name">
+                                    <a href="javascript:;">哇哈哈哈</a>
+                                </li>
+                                <li class="introduction-title"><span>副教授</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="teacherself-introduction">
+                        Tony.Dong，任职于全球性的互联网博彩公司，负责后台数据库的架构设计和开发工作。十年工作经验，擅长各种数据库管理与 SQL 开发，
+                        包括Oracle、MySQL、PostgreSQL等。目前正在研究大数据相关的技术，希望有机会大家一起交流。
+                    </p>
+                </div>
+            </div>
+            <!-- 问答 -->
+            <div class="content-right" style="display:none;" id="requestion-div">
+                <div class="content-right-container" style="height: 320px;">
+                    <h1 class="ueditor-title">提问题</h1>
+                    <div style="width:100%;height:300px;overflow: hidden;">
+                        <script id="editor" type="text/plain" style="width:300px;height:300px;"></script>
+                    </div>
+                    <div style="width: 100%;height: 32px;margin-top: 20px;">
+                        <a onclick="getPlainTxt()" class="note-submit-btn" href="javascript:;">提交</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var ue = UE.getEditor('editor', {
+                    toolbars: [
+                        ['insertcode', 'bold' , 'italic' , 'underline' , 'insertimage' , 'link' , 'unlink' ,  'insertunorderedlist' , 'insertorderedlist' , 'blockquote' ,
+                        'preview']
+                    ],
+                    autoHeightEnabled: true,
+                    autoFloatEnabled: true
+                });
+                // 获取文本内容
+                function getPlainTxt() {
+                    var arr = [];
+                    arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+                    arr.push("内容为：");
+                    arr.push(UE.getEditor('editor').getPlainTxt());
+                    alert(arr.join('\n'))
+                }
+                ue.ready(function() {
+                    //默认显示内容
+                    ue.setContent('<p style="color:silver;font-size:10px;">请输入问题内容...</p>');
+                    //文本框获取焦点时清空默认显示的内容
+                    ue.addListener("focus", function(){
+                        ue.setContent('');
+                    });
+                    //文本框是去焦点时,若内容为空则显示默认显示的内容
+                    ue.addListener("blur", function(){
+                        if(!ue.getContent()){
+                            ue.setContent('<p style="color:silver;font-size:10px;">请输入问题内容...</p>');
+                        }
+                    });
+                });
+            </script>
+            <!-- 笔记 -->
+            <div class="content-right" style="display:none;" id="note-div">
+                <div class="content-right-container" style="height: 320px;">
+                    <h1 class="ueditor-title">写笔记</h1>
+                    <div style="width:100%;height:300px;overflow: hidden;">
+                        <script id="editor1" type="text/plain" style="width:300px;height:300px;"></script>
+                    </div>
+                    <div style="width: 100%;height: 32px;margin-top: 20px;">
+                        <a onclick="getAllHtml()" class="note-submit-btn" href="javascript:;">提交</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var ue1 = UE.getEditor('editor1', {
+                    toolbars: [
+                        ['insertcode', 'bold' , 'italic' , 'underline' , 'insertimage' , 'link' , 'unlink' ,  'insertunorderedlist' , 'insertorderedlist' , 'blockquote' ,
+                        'preview']
+                    ],
+                    autoHeightEnabled: true,
+                    autoFloatEnabled: true
+                });
+                function getAllHtml() {
+                    alert(UE.getEditor('editor').getAllHtml())
+                }
+                ue1.ready(function() {
+                    //默认显示内容
+                    ue1.setContent('<p style="color:silver;font-size:10px;">请输入笔记内容...</p>');
+                    //文本框获取焦点时清空默认显示的内容
+                    ue1.addListener("focus", function(){
+                        ue1.setContent('');
+                    });
+                    //文本框是去焦点时,若内容为空则显示默认显示的内容
+                    ue1.addListener("blur", function(){
+                        if(!ue1.getContent()){
+                            ue1.setContent('<p style="color:silver;font-size:10px;">请输入笔记内容...</p>');
+                        }
+                    });
+                });
+            </script>
+            <!-- 评论 -->
+            <div class="content-right" style="display:none;" id="comment-div">
+                <div class="content-right-container" style="height: 320px;">
+                    <h1 class="ueditor-title">写评论</h1>
+                    <div style="width:100%;height:300px;overflow: hidden;">
+                        <script id="editor2" type="text/plain" style="width:300px;height:300px;"></script>
+                    </div>
+                    <div style="width: 100%;height: 32px;margin-top: 20px;">
+                        <a onclick="getAllHtml()" class="note-submit-btn" href="javascript:;">提交</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var ue2 = UE.getEditor('editor2', {
+                    toolbars: [
+                        ['insertcode', 'bold' , 'italic' , 'underline' , 'insertimage' , 'link' , 'unlink' ,  'insertunorderedlist' , 'insertorderedlist' , 'blockquote' ,
+                        'preview']
+                    ],
+                    autoHeightEnabled: true,
+                    autoFloatEnabled: true
+                });
+                function getAllHtml() {
+                    alert(UE.getEditor('editor').getAllHtml())
+                }
+                ue2.ready(function() {
+                    //默认显示内容
+                    ue2.setContent('<p style="color:silver;font-size:10px;">请输入评论内容...</p>');
+                    //文本框获取焦点时清空默认显示的内容
+                    ue2.addListener("focus", function(){
+                        ue2.setContent('');
+                    });
+                    //文本框是去焦点时,若内容为空则显示默认显示的内容
+                    ue2.addListener("blur", function(){
+                        if(!ue2.getContent()){
+                            ue2.setContent('<p style="color:silver;font-size:10px;">请输入评论内容...</p>');
+                        }
+                    });
+                });
+            </script>
+            <!-- 点击问答菜单时显示的效果 -->
+            <script>
+                $("#requestion").click(function(){
+                    if($("#requestion-div").css("display")=="block"){
+                        $("#requestion-div").css("display","none");
+                        $("#introduction-div").css("display","block");
+                        $("#note-div").css("display","none");
+                        $("#comment-div").css("display","none");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }else{
+                        $("#requestion-div").css("display","block");
+                        $("#introduction-div").css("display","none");
+                        $("#note-div").css("display","none");
+                        $("#comment-div").css("display","none");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }
+                });
+                $("#note").click(function(){
+                    if($("#note-div").css("display")=="block"){
+                        $("#requestion-div").css("display","none");
+                        $("#note-div").css("display","none");
+                        $("#introduction-div").css("display","block");
+                        $("#comment-div").css("display","none");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }else{
+                        $("#requestion-div").css("display","none");
+                        $("#note-div").css("display","block");
+                        $("#introduction-div").css("display","none");
+                        $("#comment-div").css("display","none");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }
+                });
+                $("#comment").click(function(){
+                    if($("#comment-div").css("display")=="block"){
+                        $("#requestion-div").css("display","none");
+                        $("#note-div").css("display","none");
+                        $("#introduction-div").css("display","block");
+                        $("#comment-div").css("display","none");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }else{
+                        $("#requestion-div").css("display","none");
+                        $("#note-div").css("display","none");
+                        $("#introduction-div").css("display","none");
+                        $("#comment-div").css("display","block");
+                        $(".content-right-container").css({
+                            width:"260px",
+                            height:"auto",
+                            backgroundColor:"#1c1f21"
+                        });
+                    }
+                });
+            </script>
+        </div>
+    </div>
+    <!-- 底部评论/问答 -->
+    <div class="show">
+        <div class="show-content-container">
+            <!-- 问答/评论导航条 -->
+            <div class="show-nav-bar">
+                <ul>
+                    <li class="current nav-bar-li">问答</li>
+                    <li class="nav-bar-li">评论</li>
+                    <li class="nav-bar-li">同学笔记</li>
+                </ul>
+            </div>
+            <!-- 评论/问答内容展示区 -->
+            <div class="show-nav-bar-content">
+                <!-- 问答 -->
+                <div class="show-nav-bar-content-item1 show-nav-bar-content-item" style="display:block;">
+                    <div class="questions-and-answers-top">
+                        <a href="#" class="publish">我要提问</a>
+                    </div>
+                    <div class="questions-and-answers-content">
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                        基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台基于spoc的在线学习平台
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 评论 -->
+                <div class="show-nav-bar-content-item2 show-nav-bar-content-item">
+                    <div class="questions-and-answers-top">
+                        <a href="#" class="publish">我要发布</a>
+                    </div>
+                    <div class="questions-and-answers-content">
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                        学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐学习使我快乐
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 同学笔记 -->
+                <div class="show-nav-bar-content-item3 show-nav-bar-content-item">
+                    <div class="questions-and-answers-top">
+                        <a href="#" class="publish">编写笔记</a>
+                    </div>
+                    <div class="questions-and-answers-content">
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">哇哈哈哈</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        box-shadow 向框添加一个或多个阴影。该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、
+                                        可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:34:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        box-shadow 向框添加一个或多个阴影。该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、
+                                        可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        box-shadow 向框添加一个或多个阴影。该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、
+                                        可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questions-and-answers-content-item">
+                            <div class="questions-and-answers-content-item-left">
+                                <img src="../images/item1.jpg" alt="" class="questions-and-answers-img">
+                            </div>
+                            <div class="questions-and-answers-content-item-right">
+                                <div class="user-name">
+                                    <a href="#">基于spoc的在线学习平台</a>
+                                </div>
+                                <div class="user-scrible">
+                                    <p>
+                                        box-shadow 向框添加一个或多个阴影。该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、
+                                        可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+                                    </p>
+                                </div>
+                                <div class="user-date">
+                                    <span>2019-03-02 15:31:02</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            var oLi = document.getElementsByClassName("nav-bar-li");
+            var oDiv = document.getElementsByClassName("show-nav-bar-content-item");
+            for(var i=0;i<oLi.length;i++){
+                // 为每个按钮添加一个index属性，方便后面选择当前该显示的div
+                oLi[i].index = i;
+                oLi[i].onclick = function(){
+                    // 清除其他button的className以达到背景不变成黄色
+                    for(var j=0;j<oLi.length;j++){
+                        oLi[j].className = 'nav-bar-li';
+                    }
+                    // 使用this对当前按钮添加className
+                    this.className = 'current nav-bar-li';
+
+                    for(var j=0;j<oDiv.length;j++){
+                        oDiv[j].style.display = '';
+                    }
+                    // 显示当前的div
+                    oDiv[this.index].style.display = 'block';
+                };
+            }
+        }
+    </script>
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <!-- 底部第一块内容区 -->
+            <div class="footer-container-item1">
+                <div class="footer-container-item1-link">
+                    <ul class="footer-link-ul">
+                        <li><a href="../index.html">网站首页</a></li>
+                        <li><a href="">联系我们</a></li>
+                        <li><a href="">帮助中心</a></li>
+                        <li><a href="">问题反馈</a></li>
+                        <li><a href="">学习qq群</a></li>
+                    </ul>
+                </div>
+                <div class="footer-container-item1-copyright">
+                    <p>Copyright © 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                </div>
+            </div>
+            <!-- 底部第二块内容区 -->
+            <div class="footer-container-item2">
+                <ul>
+                    <li class="footer-item2-contact-phone">13281289371</li>
+                    <li class="footer-item2-contact-other">免费咨询热线</li>
+                    <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                    <li class="footer-item2-contact-other">官方群：1825956830</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

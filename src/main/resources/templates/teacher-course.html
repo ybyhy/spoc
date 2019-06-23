@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/teacher-course.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="../jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="contain">
+        <!-- 顶部区域 -->
+        <!-- header -->
+        <div class="header">
+            <div class="header-container">
+                <!-- logo -->
+                <div class="header-container-item1">
+                    <img src="../images/login/logo.png" alt="" width="200px" height="80px">
+                </div>
+                <!-- 导航栏 -->
+                <div class="header-container-item2">
+                    <ul class="navigation-bar">
+                        <li><a href="../index.html" class="navigation-bar-link">免费课程</a></li>
+                        <li><a href="" class="navigation-bar-link">实战课程</a></li>
+                        <li><a href="" class="navigation-bar-link">微视频</a></li>
+                        <li><a href="./study-club.html" class="navigation-bar-link">俱乐部</a></li>
+                        <li><a href="./study-type.html" class="navigation-bar-link">学习风格</a></li>
+                    </ul>
+                </div>
+                <!-- 登录 -->
+                <div class="header-container-item3">
+                    <ul class="login-item">
+                        <li class="login-item-li">
+                            <img src="../images/item1.jpg" alt="头像" class="head-portrait">
+                            <!-- 已登陆后显示的框 -->
+                            <div class="login-in">
+                                <div class="login-in-item1">
+                                    <!-- 头像 -->
+                                    <div class="login-in-item1-img">
+                                        <img src="../images/own-home/2.png" alt="" class="login-in-img">
+                                    </div>
+                                    <!-- 网名 -->
+                                    <div class="login-in-item1-info">
+                                        <div class="item1-info-title">
+                                            <label>么么哒爱老婆</label>
+                                        </div>
+                                        <div class="item1-info-experience">
+                                            <span>经验值：3225</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="login-in-item2">
+                                    <ul class="login-in-item2-center">
+                                        <li><a href="./own-home.html"><i class="fa fa-address-book" aria-hidden="true"></i>我的课程</a></li>
+                                        <li><a href="./own-home.html"><i class="fa fa-bars" aria-hidden="true"></i>订单中心</a></li>
+                                        <li><a href="./own-info.html"><i class="fa fa-cog" aria-hidden="true"></i>账号设置</a></li>
+                                        <li><a href="./account-management.html"><i class="fa fa-user" aria-hidden="true"></i>个人设置</a></li>
+                                    </ul>
+                                </div>
+                                <!-- 观看历史 -->
+                                <div class="login-in-item3">
+                                    <div class="login-in-item3-title"><i class="fa fa-history" aria-hidden="true"></i>Ajax全接触</div>
+                                    <div class="login-in-item3-section">
+                                        <span class="item3-section-float-left">3-1 Ajax-例子解释</span>
+                                        <span class="item3-section-float-right"><a href="">继续</a></span>
+                                    </div>
+                                </div>
+                                <div class="login-in-item4">
+                                    <a href="">安全退出</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <script>
+                        $(document).ready(function(){
+                            // 鼠标移到头像上显示信息框
+                            $(".login-item-li").hover(function(){
+                                $(".login-in").css("display","block");
+                                },function(){
+                                    $(".login-in").css("display","none");
+                            });
+                            $(".login-in").hover(function(){
+                                $(".login-in").css("display","block");
+                                },function(){
+                                    $(".login-in").css("display","none");
+                            });
+                        });
+                    </script>
+                </div>
+                <!-- 搜索框 -->
+                <div class="header-container-item4">
+                    <!-- 搜索标签 -->
+                    <div class="search-tags">
+                        <a href="">java入门</a>
+                    </div>
+                    <!-- 搜索框 -->
+                    <div class="search-box">
+                        <input type="text">
+                    </div>
+                    <!-- 搜索按钮 -->
+                    <div class="search-buttn">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 用户个人信息区域 -->
+        <div class="userinfo">
+            <div class="userinfo-content">
+                <div class="userinfo-content-left">
+                    <div class="userinfo-content-left-img">
+                        <img src="../images/item1.jpg" alt="" width="150px" height="150px">
+                    </div>
+                    <div class="userinfo-content-left-text">
+                        <h3>完美大师</h3>
+                        <p><span class="girl">女</span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; <span class="caret"></span><span data-toggle="collapse" data-target="#demo" style="cursor: pointer;">更多信息</span></p>
+                        <div id="demo" class="collapse in">
+                            <p class="signature">这位老师很懒，木有签名的说~</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="userinfo-content-right">
+                    <div class="userinfo-content-right-item1">
+                        <p>java入门第一季</p>
+                    </div>
+                    <div class="userinfo-content-right-item2">
+                        <span>编号：044206357</span>
+                        <span>主讲教师：完美大师</span>
+                    </div>
+                    <div class="userinfo-content-right-item3">
+                        <span><a href="javascript:;"><i class="fa fa-folder-open-o" aria-hidden="true"></i> 教学管理</a></span>
+                        <span><a href="javascript:;"><i class="fa fa-building-o" aria-hidden="true"></i> 课程建设</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 内容区域 -->
+        <div class="content-outside">
+            <div class="content">
+                <!-- 左侧菜单栏 -->
+                <div class="content-left">
+                    <ul class="menu" id="choose">
+                        <li class="active">
+                            <a href="javascript:;" style="color:#0B66C1;"><span class="glyphicon glyphicon-wrench"></span> 课程维护</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><Span class="glyphicon glyphicon-user"></Span> 教师信息</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><Span class="glyphicon glyphicon-cog"></Span> 选课学生管理</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><Span class="glyphicon glyphicon-asterisk"></Span> 任课教师管理</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"><Span class="glyphicon glyphicon-pencil"></Span> 学习笔记</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-right">
+                    <!-- 课程维护内容 -->
+                    <div class="content-right-item" style="display:block;">
+                        <div class="content-right-item-title">
+                            <p> >> 课程图片</p>
+                        </div>
+                        <div class="content-right-item-content">
+                            <img src="../images/teacher-course/default_course_img.jpg" alt="">
+                            <p><a href="javascript:;" class="button button-raised button-primary button-pill">修改</a></p>
+                        </div>
+                        <div class="content-right-item-title">
+                            <p> >> 课程视频</p>
+                        </div>
+                        <div class="content-right-item-content">
+                            <div class="file">
+                                <form action="" class="activityForm">
+                                　　<div class="userdefined-file">
+                                    　　<input type="text" name="userdefinedFile" id="uploadFile1" value="未选择任何文件">
+                                    　　<button type="button">上传</button>
+                                    </div>
+                                    <input type="file" name="file" id="file1">
+                                </form>
+                            </div>
+                        </div>
+                        <div class="content-right-item-title">
+                            <p> >> 课程介绍</p>
+                        </div>
+                        <div class="content-right-item-content">
+                            <div class="introduction">
+                                <p>本课程是程序猿质变课程，理解面向对象的思想，掌握面向对象的基本原则以及 Java 面向对象编程基本实现原理，熟练使用封装、继承、多态面向对象三大特性，带你进一步探索 Java 世界的奥秘！</p>
+                            </div>
+                            <p><a href="javascript:;" class="button button-raised button-primary button-pill">修改</a></p>
+                        </div>
+                    </div>
+                    <!-- 教师信息内容 -->
+                    <div class="content-right-item">
+                        <div class="content-right-item-title">
+                            <p> >> 教师信息</p>
+                        </div>
+                        <div class="content-right-item-content col-sm-8">
+                            <table class="table table-hover table-bordered table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>教师列表</td>
+                                        <td>
+                                            <select>
+                                                <option value="完美大师">完美大师</option>
+                                                <option value="完美大师">完美大师2</option>
+                                                <option value="完美大师">完美大师3</option>
+                                                <option value="完美大师">完美大师4</option>
+                                                <option value="完美大师">完美大师5</option>
+                                                <option value="完美大师">完美大师6</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户名：</td>
+                                        <td>105235</td>
+                                    </tr>
+                                    <tr>
+                                        <td>真实姓名：</td>
+                                        <td>张三</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户头像</td>
+                                        <td>
+                                            <img src="../images/item1.jpg" alt="" width="200px" height="200px">
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email地址</td>
+                                        <td>N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>院系</td>
+                                        <td>计算机学院</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="javascript:;" class="button button-raised button-primary button-pill">修改</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            <div class="footer-container">
+                <!-- 底部第一块内容区 -->
+                <div class="footer-container-item1">
+                    <div class="footer-container-item1-link">
+                        <ul class="footer-link-ul">
+                            <li><a href="">网站首页</a></li>
+                            <li><a href="">联系我们</a></li>
+                            <li><a href="">帮助中心</a></li>
+                            <li><a href="">问题反馈</a></li>
+                            <li><a href="">学习qq群</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-container-item1-copyright">
+                        <p>Copyright ? 2019 allan.com All Rights Reserved | 京ICP备 12003892号-11 </p>
+                    </div>
+                </div>
+                <!-- 底部第二块内容区 -->
+                <div class="footer-container-item2">
+                    <ul>
+                        <li class="footer-item2-contact-phone">13281289371</li>
+                        <li class="footer-item2-contact-other">免费咨询热线</li>
+                        <li class="footer-item2-contact-other">邮箱：1825956830@qq.com</li>
+                        <li class="footer-item2-contact-other">官方群：1825956830</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    window.onload=function () {
+        var oUl=document.getElementById("choose");
+        var oLi=oUl.getElementsByTagName("li");
+        var oDiv=document.getElementsByClassName("content-right-item");
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].index=i;
+            oLi[i].onclick=function () {
+                for(var j=0;j<oLi.length;j++){
+                    oLi[j].className='';
+                    oLi[j].getElementsByTagName("a")[0].style.color="grey";
+                }
+                this.className='active';
+                this.getElementsByTagName("a")[0].style.color="#0B66C1";
+                for(var j=0;j<oDiv.length;j++){
+                    oDiv[j].style.display = "none";
+                }
+                oDiv[this.index].style.display = "block";
+            };
+        }
+        
+    }
+    </script>
+</body>
+</html>

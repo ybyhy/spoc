@@ -1,0 +1,15 @@
+实验1  Struts2实验:实现通过PramPreparePream拦截器栈实现增删改查（CRUD）
+1、实验目的 
+Struts2 之 CRUD 操作 理解 Struts 开发工作流程和基本应用，熟练掌握 struts2 的增删改查操作，熟悉掌握Struts拦截器栈的使用。 
+2、实验要求
+ 1）根据课堂老师讲解内容，完成 struts2 中员工信息的添加、更改、删除、查询等操作；理解 Struts2 的框架原理；
+ 2）掌握国际化信息数据的读取；
+ 3）掌握 struts2 输入校验的应用；
+ 4）掌握Struts拦截器栈的使用。
+3、实验步骤
+1）配置Maven+Struts环境
+2）配置Web.xml
+3）写JSP文件
+4）书写Dao层，提供数据
+5）书写Action
+6）配置Struts.xml文件
